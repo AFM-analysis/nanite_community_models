@@ -1,0 +1,27 @@
+[project]
+name = "nanite-community"
+version = "0.1.0"
+description = "Repository for storing nanite models"
+requires-python = ">=3.10"
+authors = [
+    {name="Eoghan O'Connell", email="eoclives@hotmail.com"},
+    {name="Paul Müller", email="dev@craban.de"},
+]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+    "lmfit>=1.3.2",
+    "numpy==1.26.*",
+]
+keywords=[
+    "AFM",
+    "Atomic Force Microscopy",
+    "Hertz KVM",
+    "nanite",
+    "pyjibe",
+]
+classifiers=[
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research"
+]
