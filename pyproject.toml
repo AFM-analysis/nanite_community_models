@@ -1,5 +1,5 @@
 [project]
-name = "nanite_community"
+name = "nanite-community"
 version = "0.1.0"
 description = "Repository for storing nanite models"
 requires-python = ">=3.10"
