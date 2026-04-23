@@ -113,9 +113,11 @@ def hertz_corrected_viscelasticity_KVM(delta, _mod_constraint, Eu, Eapp,
     root = (contact_point - delta)
     pos = root > 0
     D = (1 - nu ** 2)
-    aa0 = 4 / 3 * np.sqrt(R) * (Eu - (Eu - Eapp) / (1 - np.exp(-0.365 * time_ind / lmd))) / D
+    aa0 = 4 / 3 * np.sqrt(R) * (Eu - (Eu - Eapp) /
+                                (1 - np.exp(-0.365 * time_ind / lmd))) / D
 
-    aa1 = 4 / 3 * np.sqrt(R) * ((Eu - Eapp) / (1 - np.exp(-0.365 * time_ind / lmd))) / D
+    aa1 = 4 / 3 * np.sqrt(R) * ((Eu - Eapp) /
+                                (1 - np.exp(-0.365 * time_ind / lmd))) / D
 
     bb = np.zeros_like(delta)
     bb[pos] = (root[pos]) ** (3 / 2)

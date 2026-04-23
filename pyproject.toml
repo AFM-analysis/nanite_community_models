@@ -25,3 +25,9 @@ classifiers=[
     "Programming Language :: Python :: 3",
     "Intended Audience :: Science/Research"
 ]
+
+[dependency-groups]
+lint = ["flake8"]
+dev = [
+    {include-group = "lint"}
+]

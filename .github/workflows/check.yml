@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         # prerequisites
-        python -m pip install flake8
+        python -m pip install --group dev
         # install dependencies
         pip install -e .
         # show installed packages
