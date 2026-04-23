@@ -25,3 +25,8 @@ classifiers=[
     "Programming Language :: Python :: 3",
     "Intended Audience :: Science/Research"
 ]
+[dependency-groups]
+test = ["pytest"]
+dev = [
+    {include-group = "test"}
+]
