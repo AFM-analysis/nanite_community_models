@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=80", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "nanite-community"
 description = "Repository for storing nanite models"
@@ -31,3 +35,7 @@ lint = ["flake8"]
 dev = [
     {include-group = "lint"}
 ]
+
+[tool.setuptools_scm]
+write_to = "nanite_community/_version.py"
+version_scheme = "post-release"
