@@ -1,4 +1,5 @@
 0.1.1
+ - ci: update deploy_pypi to use pypi's trusted publisher system 
  - ci: add check and deploy_pypi github actions (#3, #4)
 0.1.0
  - feat: add KVM hertz model (#2)
