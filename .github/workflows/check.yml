@@ -30,3 +30,11 @@ jobs:
     - name: Lint with flake8
       run: |
         flake8 --exclude _version.py .
+    - name: Test with pytest (numpy v1)
+      run: |
+        pip install numpy==1.26.4
+        pytest tests
+    - name: Test with pytest (numpy v2)
+      run: |
+        pip install numpy==2.4.6
+        pytest tests
