@@ -255,7 +255,10 @@ def helper_retract_fraction(tip_position, force, fraction_force):
     fraction = int(0.8 * len(force))
     max_force = np.max(force[:fraction])
     max_position = -1 * tip_position[0]
-    fit_stop = int(np.argwhere(force < (max_force * fraction_force))[0])
+    _mask = force < (max_force * fraction_force)
+    if not np.any(_mask):
+        raise ValueError("No force values below threshold")
+    fit_stop = int(np.argmax(_mask))
     position_seg = tip_position[:fit_stop].copy()
     force_seg = force[:fit_stop].copy()
 
