@@ -30,13 +30,14 @@ def new_helper_retract_fraction(tip_position, force, fraction_force):
 
 
 def test_helper_behavior_differs_between_numpy_1_and_2():
-    # Deterministic example with a clear cutoff.
+    """Show that newest version works for both numpy 1 and 2"""
     tip_position = np.linspace(0.0, -9.0, 10)
     force = np.array([10.0, 9.0, 8.0, 6.0, 4.0, 3.0, 2.0, 1.0, 0.0, 0.0])
     fraction_force = 0.5  # threshold = 5.0 -> first below threshold at index 4
 
     major = int(np.__version__.split(".", 1)[0])
     if major < 2:
+        # both old and new KVM work for numpy version 1
         old = old_helper_retract_fraction(tip_position, force, fraction_force)
         new = new_helper_retract_fraction(tip_position, force, fraction_force)
         np.testing.assert_allclose(old[0], new[0])
@@ -44,7 +45,10 @@ def test_helper_behavior_differs_between_numpy_1_and_2():
         assert old[2] == new[2]
         assert old[3] == new[3]
     else:
-        # Current implementation creates errors on NumPy 2.x
+        # old implementation creates errors on NumPy 2
         # ("only length-1 arrays..." / "only 0-d arrays...").
         with pytest.raises(TypeError):
-            new_helper_retract_fraction(tip_position, force, fraction_force)
+            old_helper_retract_fraction(tip_position, force, fraction_force)
+        # therefore we need the new implementation, which works
+        # with numpy version 2
+        new_helper_retract_fraction(tip_position, force, fraction_force)
